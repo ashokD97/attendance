@@ -1,0 +1,11 @@
+{
+    "timeIn":"9:45",
+    "timeOut":[
+        {"logTime":"10:45","timeDifference":"01:00"},
+        {"logTime":"11:45","timeDifference":"02:00"},
+        {"logTime":"12:45","timeDifference":"03:00"},
+        {"logTime":"13:45","timeDifference":"04:00"},
+        {"logTime":"14:45","timeDifference":"05:00"},
+        {"logTime":"15:45","timeDifference":"06:00"}
+      ]
+}

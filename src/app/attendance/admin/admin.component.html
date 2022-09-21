@@ -1,0 +1,53 @@
+<div class="card shadow mb-4">
+    <!-- Card Header - Dropdown -->
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+        <h6 class="m-0 font-weight-bold">Leave Records</h6>
+          
+    </div>
+    <!-- Card Body -->
+    <div class="card-body">
+        <div class="row justify-content-md-center">
+            <div class="col-12">
+                <table class="table table-borderless text-center">
+                    <thead>
+                        <tr>
+                          <th scope="col">Emp Id</th>
+                          <th scope="col">Emp First Name</th>
+                          <th scope="col">Emp Last Name</th>
+                          <th scope="col">Total</th>
+                          <th scope="col">Availed</th>
+                          <th scope="col">Balance</th>
+                          <th scope="col">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let leave of allEmployeeData">
+                          <td>{{leave.id}}</td>
+                          <td>{{leave.fName}}</td>
+                          <td>{{leave.lName}}</td>
+                          <td>{{leave.total}}</td>
+                          <td>{{leave.availed}}</td>
+                          <td>{{leave.balance}}</td>
+                          <td><button class="btn actionBtn" (click)="openXl(content)"><fa-icon [icon]="['fas', 'pen-to-square']"></fa-icon></button></td>
+                        </tr>
+                        
+                      </tbody>
+              </table>
+            </div>
+        </div>
+        
+    </div>
+</div>
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Employee Attendance Details</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <!-- <p>One fine body&hellip;</p> -->
+      <app-user></app-user>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+  </ng-template>

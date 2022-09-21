@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+.navBtn:disabled{
+    border: none !important;
+}
+.timeLog:disabled{
+    border: none !important;
+}
+.actionBtn{
+    
+}

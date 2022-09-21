@@ -1,0 +1,136 @@
+<div class="row">
+    <!-- Pie Chart -->
+    <div class="col-xl-4 col-lg-5">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Dropdown -->
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold">Time Log</h6>
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+                <div class="d-flex justify-content-center">
+                        <button class="btn timeLog" [disabled]="todayTimeLogData.timeIn"><fa-icon [icon]="['fas', 'plane-arrival']" size="3x"></fa-icon></button>
+                        <button class="btn timeLog" [disabled]="!todayTimeLogData.timeIn"><fa-icon [icon]="['fas', 'plane-departure']" size="3x"></fa-icon></button>
+                </div>
+                <h2 class="pinline">
+                    <span>Today</span> 
+                </h2>
+                <table class="table table-borderless text-center">
+                    <thead>
+                        <tr>
+                          <th scope="col">Log In Time</th>
+                          <th scope="col">{{todayTimeLogData.timeIn}}</th>
+                        </tr>
+                        <tr>
+                            <th scope="col">Log Out Time</th>
+                            <th scope="col">Difference</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let log of todayTimeLogData.timeOut">
+                          <td>{{log.logTime}}</td>
+                          <td>{{log.timeDifference}}</td>
+                        </tr>
+                        
+                      </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Area Chart -->
+    <div class="col-xl-8 col-lg-7">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Dropdown -->
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold">Leave Records</h6>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" [(ngModel)]="chartViewEnabled">
+                    <label class="form-check-label" for="flexSwitchCheckDefault"><fa-icon [icon]="['fas', 'chart-column']"></fa-icon></label>
+                  </div>
+                  
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+                <div *ngIf="!chartViewEnabled" @inOutPaneAnimation> 
+                    <div class="row justify-content-md-center">
+                        <div class="col-1">
+                            <button class="btn navBtn" (click)="prevMonth()"><fa-icon [icon]="['fas', 'angles-left']"></fa-icon></button>
+                        </div>
+                        <div class="col-md-2 col-sm-4">
+                            <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedMonth">
+                                <option *ngFor="let month of monthsArr" [value]="month.id" >{{month.name}}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 col-sm-4">
+                            <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedYear">
+                                <option *ngFor="let year of yearArr" [value]="year" >{{year}}</option>
+                            </select>
+                        </div>
+                        <div class="col-1">
+                            <button class="btn navBtn" (click)="nextMonth()" [disabled]="selectedMonth==currentMonth && selectedYear ==currentYear"><fa-icon [icon]="['fas', 'angles-right']"></fa-icon></button>
+                        </div>
+                    </div>
+                    <div class="row justify-content-md-center">
+                        <div class="col-5">
+                            <table class="table table-borderless text-center">
+                                <tbody>
+                                  <tr>
+                                    <td class="fw-bold">Present</td>
+                                    <td>18</td>
+                                  </tr>
+                                  <tr>
+                                      <td class="fw-bold">Half Day</td>
+                                      <td>0</td>
+                                  </tr>
+                                  <tr>
+                                      <td class="fw-bold">Leave</td>
+                                      <td>0</td>
+                                  </tr>
+                                  <tr>
+                                      <td class="fw-bold">Absent</td>
+                                      <td>0</td>
+                                  </tr>
+                                </tbody>
+                          </table>
+                        </div>
+                    </div>
+                    
+                    <h2 class="pinline">
+                        <span>Leave Management</span> 
+                    </h2>
+                    <table class="table table-borderless text-center">
+                        <thead>
+                            <tr>
+                              <th scope="col">Leave Type</th>
+                              <th scope="col">Total</th>
+                              <th scope="col">Availed</th>
+                              <th scope="col">Balance</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let leave of leaveManagementData">
+                              <td>{{leave.type}}</td>
+                              <td>{{leave.total}}</td>
+                              <td>{{leave.availed}}</td>
+                              <td>{{leave.balance}}</td>
+                            </tr>
+                            
+                          </tbody>
+                    </table>
+                </div>
+                <div *ngIf="chartViewEnabled" @inOutPaneAnimation>
+                   
+                    <app-pie-chart></app-pie-chart>
+                    <!-- <app-number-card-chart></app-number-card-chart> -->
+                    <h2 class="pinline">
+                        <span>Leave Management</span> 
+                    </h2>
+                    <app-gauge-chart></app-gauge-chart>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+</div>
