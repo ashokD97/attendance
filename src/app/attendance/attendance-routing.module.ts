@@ -1,3 +1,4 @@
+import { UserTableComponent } from './user-table/user-table.component';
 import { AdminComponent } from './admin/admin.component';
 import { AttendanceComponent } from './attendance.component';
 import { NgModule } from '@angular/core';
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path:'admin',
     component:AdminComponent
+  },
+  {
+    path:'user-table',
+    component:UserTableComponent
   }
 ];
 

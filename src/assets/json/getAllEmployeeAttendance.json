@@ -1,6 +1,4 @@
 [
-    {"id": 0,"fName":"John","lName":"Doe","total": 0,"availed": 0,"balance": 0
-    },
     {"id": 1,"fName":"John","lName":"Doe","total": 0,"availed": 0,"balance": 0
     },
     {"id": 2,"fName":"John","lName":"Doe","total": 0,"availed": 0,"balance": 0
@@ -20,7 +18,5 @@
     {"id": 9,"fName":"John","lName":"Doe","total": 0,"availed": 0,"balance": 0
     },
     {"id": 10,"fName":"John","lName":"Doe","total": 0,"availed": 0,"balance": 0
-    },
-    {"id": 11,"fName":"John","lName":"Doe","total": 0,"availed": 0,"balance": 0
     }
 ]

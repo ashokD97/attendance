@@ -20,4 +20,10 @@ export class AttendanceService {
   getUserLeaveData(){
     return this.http.get(URLs.getUserLeaveData);
   }
+  getNewEmployeeData(){
+    return this.http.get(URLs.getNewEmployeeData);
+  }
+  updateEmployeeRecords(options:any){
+    return this.http.get(URLs.getNewEmployeeData);
+  }
 }

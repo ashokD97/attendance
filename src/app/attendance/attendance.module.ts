@@ -5,7 +5,7 @@ import { AttendanceRoutingModule } from './attendance-routing.module';
 import { AttendanceComponent } from './attendance.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faSquare, faCheckSquare, faAnglesLeft, faAnglesRight, faArrowRightFromBracket, faPlaneArrival, faPlaneDeparture, faChartSimple, faChartColumn, faEllipsisVertical, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
+import { faSquare, faCheckSquare, faAnglesLeft, faAnglesRight, faArrowRightFromBracket, faPlaneArrival, faPlaneDeparture, faChartSimple, faChartColumn, faEllipsisVertical, faPenToSquare, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FormsModule } from '@angular/forms';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
@@ -13,6 +13,8 @@ import { NumberCardChartComponent } from './number-card-chart/number-card-chart.
 import { GaugeChartComponent } from './gauge-chart/gauge-chart.component';
 import { AdminComponent } from './admin/admin.component';
 import { UserComponent } from './user/user.component';
+import { UserTableComponent } from './user-table/user-table.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 // import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
@@ -22,7 +24,8 @@ import { UserComponent } from './user/user.component';
     NumberCardChartComponent,
     GaugeChartComponent,
     AdminComponent,
-    UserComponent
+    UserComponent,
+    UserTableComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +34,8 @@ import { UserComponent } from './user/user.component';
     FontAwesomeModule,
     FormsModule,
     CommonModule,
-    NgxChartsModule
+    NgxChartsModule,
+    InfiniteScrollModule
   ]
 })
 export class AttendanceModule {
@@ -47,7 +51,8 @@ export class AttendanceModule {
       faChartSimple,
       faChartColumn,
       faEllipsisVertical,
-      faPenToSquare
+      faPenToSquare,
+      faSearch
     );
   }
  }
